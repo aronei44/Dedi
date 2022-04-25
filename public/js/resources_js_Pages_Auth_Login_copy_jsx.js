@@ -1,10 +1,10 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_Auth_Login_jsx"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_Auth_Login_copy_jsx"],{
 
-/***/ "./resources/js/Pages/Auth/Login.jsx":
-/*!*******************************************!*\
-  !*** ./resources/js/Pages/Auth/Login.jsx ***!
-  \*******************************************/
+/***/ "./resources/js/Pages/Auth/Login copy.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/Pages/Auth/Login copy.jsx ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);

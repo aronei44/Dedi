@@ -36785,6 +36785,14 @@ if (false) {} else {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./Auth/Index": [
+		"./resources/js/Pages/Auth/Index.jsx",
+		"resources_js_Pages_Auth_Index_jsx"
+	],
+	"./Auth/Index.jsx": [
+		"./resources/js/Pages/Auth/Index.jsx",
+		"resources_js_Pages_Auth_Index_jsx"
+	],
 	"./Index": [
 		"./resources/js/Pages/Index.jsx",
 		"resources_js_Pages_Index_jsx"
@@ -36920,7 +36928,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "resources_js_Pages_Index_jsx") return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Auth_Index_jsx":1,"resources_js_Pages_Index_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

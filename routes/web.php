@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return Inertia::render('Index');
 });
+Route::get('/auth', [Auth\AuthController::class, 'authView']);
