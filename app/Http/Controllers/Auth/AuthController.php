@@ -60,6 +60,6 @@ class AuthController extends Controller
         $request->user()->tokens()->delete();
         return response()->json([
             'message' => 'Successfully logged out',
-        ],401);
+        ],200);
     }
 }

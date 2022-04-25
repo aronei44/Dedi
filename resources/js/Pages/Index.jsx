@@ -1,12 +1,12 @@
 import React from 'react'
 import { Head } from '@inertiajs/inertia-react'
+import Nav from '../components/Nav'
 
 export default function Index() {
     return (
         <>
             <Head title="Index" />
-            <h1>Welcome gas</h1>
-            <p>Hello, welcome to your first Inertia app!</p>
+            <Nav />
         </>
     )
 }
