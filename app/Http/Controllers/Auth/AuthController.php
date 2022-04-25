@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,7 +25,7 @@ class AuthController extends Controller
                 'message' => 'User not found',
             ], 404);
         }
-        if (!Hash::check($request->password, $user->password)) {
+        if (!\Hash::check($request->password, $user->password)) {
             return response()->json([
                 'message' => 'Password does not match',
             ], 401);
@@ -40,13 +41,13 @@ class AuthController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required',
         ]);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => \Hash::make($request->password),
         ]);
         $token = $user->createToken('authToken')->plainTextToken;
         return response()->json([

@@ -1,9 +1,66 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Head} from "@inertiajs/inertia-react";
+import axios from "axios";
 
 const Index = () => {
-    const [login, setLogin] = useState(true)
-    const [isLogin, setIsLogin] = useState(false);
+    useEffect(() => {
+        if(localStorage.getItem('token')) {
+            axios({
+                method: 'get',
+                url: '/api/user',
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            }).then(response => {
+                if(response.status === 200) {
+                    window.location.href = '/';
+                } else {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                }
+            });
+        }
+    }, []);
+    const [login, setLogin] = useState(true);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const auth = () =>{
+        const body = {
+            email,
+            password,
+            name: username
+        }
+        if(login){
+            axios.post('/api/login', body)
+                .then(res => {
+                    if(res.status === 200){
+                        localStorage.setItem('token', res.data.token)
+                        localStorage.setItem('user', JSON.stringify(res.data.user))
+                        window.location.href = '/'
+                    } else {
+                        alert('Login failed')
+                    }
+                }
+            ).catch(err => {
+                console.log(err)
+            })
+        }else{
+            axios.post('/api/register', body)
+                .then(res => {
+                    if(res.status === 201){
+                        localStorage.setItem('token', res.data.token)
+                        localStorage.setItem('user', JSON.stringify(res.data.user))
+                        window.location.href = '/'
+                    } else {
+                        alert('Register failed')
+                    }
+                }
+            ).catch(err => {
+                console.log(err)
+            })
+        }
+    }
     return (
         <>
             <Head title={`Megamendung - ${ login ? "Login" : "Register"}`} />
@@ -48,6 +105,8 @@ const Index = () => {
                                                 className="form-control"
                                                 id="username"
                                                 placeholder="Username"
+                                                value={username}
+                                                onChange={(e) => setUsername(e.target.value)}
                                                 />
                                         </div>
 
@@ -63,6 +122,8 @@ const Index = () => {
                                         className="form-control"
                                         id="email"
                                         placeholder="Email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                         />
                                 </div>
                                 <div
@@ -76,6 +137,8 @@ const Index = () => {
                                         className="form-control"
                                         id="password"
                                         placeholder="Password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
                                         />
                                 </div>
                                 <div
@@ -83,6 +146,7 @@ const Index = () => {
                                     <button
                                         type="button"
                                         className="btn btn-primary"
+                                        onClick={() => auth()}
                                         style={{
                                             width:"100%"
                                         }}>
