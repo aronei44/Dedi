@@ -5,6 +5,7 @@ import { Link } from "@inertiajs/inertia-react";
 const Nav = () => {
     const [login, setLogin] = useState(false);
     const [user, setUser] = useState({});
+    const [scrolled, setScrolled] = useState(false);
     const logout = () => {
         axios({
             method: "post",
@@ -32,10 +33,17 @@ const Nav = () => {
             setLogin(true);
             setUser(JSON.parse(localStorage.getItem("user")));
         }
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 100) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        });
     }, []);
     return (
         <nav
-            className="navbar navbar-expand-lg navbar-light bg-light bg-opacity-25">
+            className={`navbar navbar-expand-lg navbar-light bg-light ${scrolled ? "fixed-top" : "bg-opacity-25"}`}>
             <div
                 className="container">
                 <Link

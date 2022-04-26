@@ -3,7 +3,10 @@ import React from 'react';
 const Hero = () => {
     return (
         <section
-            className="bg-white">
+            className="bg-white"
+            style={{
+                height:"100vh"
+            }}>
             <div
                 className="container">
                 <div
@@ -26,10 +29,11 @@ const Hero = () => {
                             className="lead text-muted">
                             Akses seluruh fasilitas desa dalam genggaman anda.
                             </p>
-                        <button
-                            className="btn btn-primary btn-lg">
+                        <a
+                            href="#about"
+                            className="btn btn-primary btn-lg scroll-to">
                             Ayo Jelajahi
-                            </button>
+                            </a>
                     </div>
                 </div>
             </div>
