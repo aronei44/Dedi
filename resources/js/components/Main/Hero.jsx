@@ -5,7 +5,7 @@ const Hero = () => {
         <section
             className="bg-white"
             style={{
-                height:"100vh"
+                minHeight:"100vh"
             }}>
             <div
                 className="container">

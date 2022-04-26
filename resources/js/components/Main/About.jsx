@@ -7,7 +7,7 @@ const About = () => {
         <section
             className="bg-white"
             style={{
-                height:"80vh"
+                minHeight:"80vh"
             }}>
             <div
                 className="container">

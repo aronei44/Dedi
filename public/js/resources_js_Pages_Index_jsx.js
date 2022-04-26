@@ -2213,7 +2213,7 @@ var About = function About() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
     className: "bg-white",
     style: {
-      height: "80vh"
+      minHeight: "80vh"
     },
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "container",
@@ -2338,7 +2338,7 @@ var Hero = function Hero() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
     className: "bg-white",
     style: {
-      height: "100vh"
+      minHeight: "100vh"
     },
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "container",
