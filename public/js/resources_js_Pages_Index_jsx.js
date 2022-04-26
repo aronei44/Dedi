@@ -2171,7 +2171,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Main_Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Main/Nav */ "./resources/js/components/Main/Nav.jsx");
 /* harmony import */ var _components_Main_Hero__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Main/Hero */ "./resources/js/components/Main/Hero.jsx");
 /* harmony import */ var _components_Main_About__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Main/About */ "./resources/js/components/Main/About.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Main_Contact__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Main/Contact */ "./resources/js/components/Main/Contact.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -2181,10 +2183,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Index() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
       title: "Megamendung"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Main_Nav__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Main_Hero__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Main_About__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Main_Nav__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Main_Hero__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Main_About__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Main_Contact__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
   });
 }
 
@@ -2215,21 +2217,21 @@ var About = function About() {
     style: {
       minHeight: "80vh"
     },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+        className: "text-primary text-center",
+        children: "Tentang Megamendung Digital"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         id: "about",
         className: "row align-items-start",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "col-md-6",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-            className: "text-primary ".concat(window.innerWidth <= 800 ? "" : "text-end"),
-            children: "Tentang Megamendung Digital"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-            className: "lead text-muted ".concat(window.innerWidth <= 800 ? "" : "text-end"),
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+            className: "lead text-muted ".concat(window.innerWidth < 800 ? "text-start" : "text-end"),
             children: "Megamendung Digital adalah aplikasi desa digital yang dikembangkan oleh Desa Digital Megamendung. Dengan aplikasi ini, diharapkan para pengunjung atau warga setempat dapat mengakses fasilitas - fasilitas yang tersedia dengan mudah dan cepat. Diharapkan pula aplikasi ini menjadi media informasi yang bermanfaat bagi para pengunjung."
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-            className: "lead text-muted ".concat(window.innerWidth <= 800 ? "" : "text-end"),
+            className: "lead text-muted ".concat(window.innerWidth < 800 ? "text-start" : "text-end"),
             children: "Sasaran utama aplikasi ini adalah para pengunjung atau wisatawan serta penduduk setempat agar bisa mendapatkan kemudahan dalam mengakses fasilitas desa. Aplikasi ini juga dapat digunakan oleh para petugas desa untuk mengelola fasilitas desa."
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -2250,7 +2252,7 @@ var About = function About() {
             })]
           })]
         })]
-      })
+      })]
     })
   });
 };
@@ -2314,6 +2316,102 @@ var AboutCard = function AboutCard(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AboutCard);
+
+/***/ }),
+
+/***/ "./resources/js/components/Main/Contact.jsx":
+/*!**************************************************!*\
+  !*** ./resources/js/components/Main/Contact.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var Contact = function Contact() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "bg-white",
+    style: {
+      minHeight: "80vh"
+    },
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "container",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+        className: "text-center text-primary",
+        children: "Kontak Kami"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "row",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "col-md-6",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("iframe", {
+            src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.00764067852!2d106.90953611431443!3d-6.645971566816424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c8200e234e63%3A0xfdcd78dffabf1537!2sMegamendung%2C%20Cipayung%20Girang%2C%20Kec.%20Megamendung%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat%2016770!5e0!3m2!1sid!2sid!4v1650942771271!5m2!1sid!2sid",
+            width: "100%",
+            height: 400,
+            style: {
+              border: 0
+            },
+            allowFullScreen: true,
+            loading: "lazy",
+            referrerPolicy: "no-referrer-when-downgrade"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "col-md-6 shadow p-3 mb-5 bg-body rounded",
+          style: {
+            minHeight: "400px"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+              htmlFor: "name",
+              children: "Nama"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              type: "text",
+              className: "form-control bg-white",
+              id: "name",
+              placeholder: "Masukkan nama anda"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+              htmlFor: "email",
+              children: "Email"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              type: "email",
+              className: "form-control bg-white",
+              id: "email",
+              placeholder: "Masukkan email anda"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+              htmlFor: "message",
+              children: "Pesan"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
+              className: "form-control bg-white",
+              id: "message",
+              rows: "3",
+              placeholder: "Masukkan pesan anda"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            type: "button",
+            className: "btn btn-primary btn-block mt-4",
+            children: "Kirim"
+          })]
+        })]
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Contact);
 
 /***/ }),
 
