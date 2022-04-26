@@ -2211,7 +2211,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var About = function About() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
-    className: "bg-white",
+    className: "bg-white ".concat(window.innerWidth <= 800 ? "pt-3 pb-3" : ""),
     style: {
       minHeight: "80vh"
     },
@@ -2223,13 +2223,13 @@ var About = function About() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "col-md-6",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-            className: "text-primary text-end",
+            className: "text-primary ".concat(window.innerWidth <= 800 ? "" : "text-end"),
             children: "Tentang Megamendung Digital"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-            className: "lead text-muted text-end",
+            className: "lead text-muted ".concat(window.innerWidth <= 800 ? "" : "text-end"),
             children: "Megamendung Digital adalah aplikasi desa digital yang dikembangkan oleh Desa Digital Megamendung. Dengan aplikasi ini, diharapkan para pengunjung atau warga setempat dapat mengakses fasilitas - fasilitas yang tersedia dengan mudah dan cepat. Diharapkan pula aplikasi ini menjadi media informasi yang bermanfaat bagi para pengunjung."
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-            className: "lead text-muted text-end",
+            className: "lead text-muted ".concat(window.innerWidth <= 800 ? "" : "text-end"),
             children: "Sasaran utama aplikasi ini adalah para pengunjung atau wisatawan serta penduduk setempat agar bisa mendapatkan kemudahan dalam mengakses fasilitas desa. Aplikasi ini juga dapat digunakan oleh para petugas desa untuk mengelola fasilitas desa."
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
