@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "@inertiajs/inertia-react";
 
 const Nav = () => {
     const [login, setLogin] = useState(false);
@@ -34,14 +35,14 @@ const Nav = () => {
     }, []);
     return (
         <nav
-            className="navbar navbar-expand-lg navbar-light bg-light">
+            className="navbar navbar-expand-lg navbar-light bg-light bg-opacity-25">
             <div
                 className="container">
-                <a
+                <Link
                     className="navbar-brand"
                     href="/">
                     Megamendung
-                    </a>
+                    </Link>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -62,15 +63,15 @@ const Nav = () => {
                             <>
                                 <li
                                     className="nav-item">
-                                    <a
+                                    <Link
                                         className="nav-link"
                                         href="#">
                                         Dashboard
-                                        </a>
+                                        </Link>
                                     </li>
                                 <li
                                     className="nav-item dropdown">
-                                    <a
+                                    <Link
                                         className="nav-link dropdown-toggle"
                                         href="#"
                                         id="navbarDropdownMenuLink"
@@ -78,29 +79,29 @@ const Nav = () => {
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         {user.name}
-                                        </a>
+                                        </Link>
                                     <ul
                                         className="dropdown-menu"
                                         aria-labelledby="navbarDropdownMenuLink">
                                         <li>
-                                            <a
+                                            <Link
                                                 className="dropdown-item"
                                                 onClick={() => logout()}
                                                 href="#">
                                                 Logout
-                                                </a>
+                                                </Link>
                                             </li>
                                     </ul>
                                 </li>
                             </>
                         ) : (
                             <li
-                                className="nav-item btn btn-primary btn-sm">
-                                <a
-                                    className="nav-link text-white"
+                                className="nav-item">
+                                <Link
+                                    className="nav-link text-white btn btn-primary btn-sm"
                                     href="/auth">
                                     Login
-                                    </a>
+                                    </Link>
                                 </li>
                         )}
                     </ul>
