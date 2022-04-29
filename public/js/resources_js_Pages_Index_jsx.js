@@ -2359,9 +2359,12 @@ var Carousel = function Carousel() {
     style: {
       minHeight: "60vh"
     },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+        className: "text-primary text-center",
+        children: "Kata Mereka"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         id: "carouselExampleControls",
         className: "carousel slide",
         "data-bs-ride": "carousel",
@@ -2400,7 +2403,7 @@ var Carousel = function Carousel() {
             children: "Next"
           })]
         })]
-      })
+      })]
     })
   });
 };

@@ -26,6 +26,10 @@ const Carousel = () => {
             }}>
             <div
                 className="container">
+                <h2
+                    className="text-primary text-center">
+                    Kata Mereka
+                </h2>
                 <div
                     id="carouselExampleControls"
                     className="carousel slide"
