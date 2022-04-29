@@ -7,6 +7,12 @@
         <link rel="stylesheet" href="/css/style.css">
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
         <script src="{{ mix('/js/app.js') }}" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .checked {
+                color: orange;
+            }
+        </style>
         @inertiaHead
     </head>
     <body>
