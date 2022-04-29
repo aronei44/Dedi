@@ -6,6 +6,8 @@ use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -13,6 +15,54 @@ class AuthController extends Controller
     {
         return Inertia::render('Auth/Index');
     }
+    public function loginWeb(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email:dns',
+            'password' => 'required|min:8',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/');
+        } else {
+            return redirect()->back()->withInput()->with('error', 'Invalid credentials.');
+        }
+    }
+    public function registerWeb(Request $request)
+    {
+        $credentials = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email:dns|unique:users',
+            'password' => 'required|min:8',
+        ]);
+
+        $user = User::create([
+            'name' => $credentials['name'],
+            'email' => $credentials['email'],
+            'password' => Hash::make($credentials['password']),
+        ]);
+
+        Auth::login($user);
+
+        return redirect()->intended('/');
+    }
+    public function logoutWeb(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
+
+
+
+
+    // auth for api
     public function login(Request $request)
     {
         $request->validate([

@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Head} from "@inertiajs/inertia-react";
 import axios from "axios";
-import NonAuth from "../../components/hooks/NonAuth";
+import NonAuth from "../../hooks/NonAuth";
+import { Inertia } from "@inertiajs/inertia";
 
 const Index = () => {
     NonAuth();
@@ -16,33 +17,35 @@ const Index = () => {
             name: username
         }
         if(login){
-            axios.post('/api/login', body)
-                .then(res => {
-                    if(res.status === 200){
-                        localStorage.setItem('token', res.data.token)
-                        localStorage.setItem('user', JSON.stringify(res.data.user))
-                        window.location.href = '/'
-                    } else {
-                        alert('Login failed')
-                    }
-                }
-            ).catch(err => {
-                console.log(err)
-            })
+            // axios.post('/api/login', body)
+            //     .then(res => {
+            //         if(res.status === 200){
+            //             localStorage.setItem('token', res.data.token)
+            //             localStorage.setItem('user', JSON.stringify(res.data.user))
+            //             window.location.href = '/'
+            //         } else {
+            //             alert('Login failed')
+            //         }
+            //     }
+            // ).catch(err => {
+            //     console.log(err)
+            // })
+            Inertia.post('/auth/login', body)
         }else{
-            axios.post('/api/register', body)
-                .then(res => {
-                    if(res.status === 201){
-                        localStorage.setItem('token', res.data.token)
-                        localStorage.setItem('user', JSON.stringify(res.data.user))
-                        window.location.href = '/'
-                    } else {
-                        alert('Register failed')
-                    }
-                }
-            ).catch(err => {
-                console.log(err)
-            })
+            // axios.post('/api/register', body)
+            //     .then(res => {
+            //         if(res.status === 201){
+            //             localStorage.setItem('token', res.data.token)
+            //             localStorage.setItem('user', JSON.stringify(res.data.user))
+            //             window.location.href = '/'
+            //         } else {
+            //             alert('Register failed')
+            //         }
+            //     }
+            // ).catch(err => {
+            //     console.log(err)
+            // })
+            Inertia.post('/auth/register', body)
         }
     }
     return (

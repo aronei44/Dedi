@@ -1,38 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "@inertiajs/inertia-react";
+import {Inertia} from "@inertiajs/inertia";
+import {usePage} from "@inertiajs/inertia-react";
 
 const Nav = () => {
-    const [login, setLogin] = useState(false);
-    const [user, setUser] = useState({});
+    const {user} = usePage().props
     const [scrolled, setScrolled] = useState(false);
     const logout = () => {
-        axios({
-            method: "post",
-            url: "/api/logout",
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        }).then((res) => {
-            console.log(res)
-            if (res.status === 200) {
-                localStorage.removeItem("token");
-                localStorage.removeItem("user");
-                setLogin(false);
-                setUser({});
-                window.location.reload();
-            } else {
-                alert("Logout failed");
-            }
-        }).catch((err) => {
-            console.log(err);
-        })
+        Inertia.post("/auth/logout");
+        Inertia.post("/auth/logout");
     };
     useEffect(() => {
-        if (localStorage.getItem("token")) {
-            setLogin(true);
-            setUser(JSON.parse(localStorage.getItem("user")));
-        }
         window.addEventListener("scroll", () => {
             if (window.scrollY > 100) {
                 setScrolled(true);
@@ -67,7 +46,7 @@ const Nav = () => {
                     id="navbarNav">
                     <ul
                         className="navbar-nav ms-auto">
-                        {login ? (
+                        {user ? (
                             <>
                                 <li
                                     className="nav-item">

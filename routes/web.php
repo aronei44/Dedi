@@ -20,3 +20,6 @@ Route::get('/', function () {
     return Inertia::render('Index');
 });
 Route::get('/auth', [Auth\AuthController::class, 'authView']);
+Route::post('/auth/login', [Auth\AuthController::class, 'loginWeb']);
+Route::post('/auth/register', [Auth\AuthController::class, 'registerWeb']);
+Route::post('/auth/logout', [Auth\AuthController::class, 'logoutWeb']);
