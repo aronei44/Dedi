@@ -1,26 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {Head} from "@inertiajs/inertia-react";
 import axios from "axios";
+import NonAuth from "../../components/hooks/NonAuth";
 
 const Index = () => {
-    useEffect(() => {
-        if(localStorage.getItem('token')) {
-            axios({
-                method: 'get',
-                url: '/api/user',
-                headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('token')
-                }
-            }).then(response => {
-                if(response.status === 200) {
-                    window.location.href = '/';
-                } else {
-                    localStorage.removeItem('token');
-                    localStorage.removeItem('user');
-                }
-            });
-        }
-    }, []);
+    NonAuth();
     const [login, setLogin] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
