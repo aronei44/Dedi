@@ -2737,7 +2737,7 @@ var Nav = function Nav() {
               className: "nav-item",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
                 className: "nav-link",
-                href: "#",
+                href: "/dashboard",
                 children: "Dashboard"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {

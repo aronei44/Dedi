@@ -52,7 +52,7 @@ const Nav = () => {
                                     className="nav-item">
                                     <Link
                                         className="nav-link"
-                                        href="#">
+                                        href="/dashboard">
                                         Dashboard
                                         </Link>
                                     </li>

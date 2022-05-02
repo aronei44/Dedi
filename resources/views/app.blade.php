@@ -12,6 +12,13 @@
             .checked {
                 color: orange;
             }
+            .hideScrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .hideScrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
         </style>
         @inertiaHead
         <link href="/vendor/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

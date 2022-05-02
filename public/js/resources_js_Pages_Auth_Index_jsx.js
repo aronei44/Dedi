@@ -2238,7 +2238,7 @@ var Index = function Index() {
       // ).catch(err => {
       //     console.log(err)
       // })
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post('/auth/login', body);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post('/auth/login', body); // window.location.reload()
     } else {
       // axios.post('/api/register', body)
       //     .then(res => {
@@ -2253,7 +2253,7 @@ var Index = function Index() {
       // ).catch(err => {
       //     console.log(err)
       // })
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post('/auth/register', body);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post('/auth/register', body); // window.location.reload()
     }
   };
 

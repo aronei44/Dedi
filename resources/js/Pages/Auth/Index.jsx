@@ -31,6 +31,7 @@ const Index = () => {
             //     console.log(err)
             // })
             Inertia.post('/auth/login', body)
+            // window.location.reload()
         }else{
             // axios.post('/api/register', body)
             //     .then(res => {
@@ -46,6 +47,7 @@ const Index = () => {
             //     console.log(err)
             // })
             Inertia.post('/auth/register', body)
+            // window.location.reload()
         }
     }
     return (

@@ -19,11 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return Inertia::render('Index');
 });
-Route::get('/auth', [Auth\AuthController::class, 'authView']);
+Route::get('/auth', [Auth\AuthController::class, 'authView'])->name('login');
 Route::post('/auth/login', [Auth\AuthController::class, 'loginWeb']);
 Route::post('/auth/register', [Auth\AuthController::class, 'registerWeb']);
 Route::post('/auth/logout', [Auth\AuthController::class, 'logoutWeb']);
 
-Route::get('dashboard', function () {
-    return Inertia::render('Dashboard/Index');
+Route::group(['middleware' => 'auth','prefix'=>'dashboard'], function () {
+    Route::get('/', function () {
+        return Inertia::render('Dashboard/Index');
+    });
 });
