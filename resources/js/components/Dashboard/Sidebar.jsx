@@ -1,11 +1,17 @@
 import { Inertia } from "@inertiajs/inertia";
-import { Link } from "@inertiajs/inertia-react";
-import React from "react";
+import { Link, usePage } from "@inertiajs/inertia-react";
+import React, { useEffect, useState } from "react";
 
 const Sidebar = () => {
+    const [color, setColor] = useState("primary");
+    const {url} = usePage().props
+    useEffect(() => {
+        const colors = ["primary", "secondary", "success", "danger", "warning", "info", "dark"];
+        setColor(colors[Math.floor(Math.random() * colors.length)]);
+    }, []);
     return (
         <ul
-            className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+            className={`navbar-nav bg-gradient-${color} sidebar sidebar-dark accordion`}
             id="accordionSidebar"
             style={{
                 maxHeight: "100vh",
@@ -21,7 +27,7 @@ const Sidebar = () => {
             <hr
                 className="sidebar-divider my-0" />
             <li
-                className="nav-item active">
+                className={`nav-item ${url === "/dashboard" ? "active" : ""}`}>
                 <Link
                     className="nav-link"
                     href="/dashboard">
@@ -63,7 +69,7 @@ const Sidebar = () => {
                         {/* <h6
                             className="collapse-header">Custom Components:</h6> */}
                         <Link
-                            className="collapse-item"
+                            className={`collapse-item ${url === "/dashboard/account" ? "active" : ""}`}
                             href="/dashboard/account">
                             <i
                                 className="fas fa-fw fa-user" />
@@ -73,7 +79,7 @@ const Sidebar = () => {
                             </span>
                         </Link>
                         <Link
-                            className="collapse-item"
+                            className={`collapse-item ${url === "/dashboard/profile" ? "active" : ""}`}
                             href="/dashboard/profile">
                             <i
                                 className="fas fa-fw fa-user" />

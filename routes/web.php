@@ -28,4 +28,7 @@ Route::group(['middleware' => 'auth','prefix'=>'dashboard'], function () {
     Route::get('/', function () {
         return Inertia::render('Dashboard/Index');
     });
+    Route::get('/account', function () {
+        return Inertia::render('Dashboard/Account/Index');
+    });
 });
