@@ -19,6 +19,9 @@
                 -ms-overflow-style: none;
                 scrollbar-width: none;
             }
+            .pointer {
+                cursor: pointer;
+            }
         </style>
         @inertiaHead
         <link href="/vendor/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

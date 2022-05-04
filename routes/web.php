@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/change-password', [Auth\AuthController::class, 'changePassword']);
     Route::put('/change-email', [Auth\AuthController::class, 'changeEmail']);
     Route::post('/delete-account', [Auth\AuthController::class, 'deleteAccount']);
+    Route::put('/profile', [Auth\ProfileController::class, 'changeProfile']);
 
     Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/', function () {
@@ -35,6 +36,9 @@ Route::group(['middleware' => 'auth'], function () {
         });
         Route::get('/account', function () {
             return Inertia::render('Dashboard/Account/Index');
+        });
+        Route::get('/profile', function () {
+            return Inertia::render('Dashboard/Profile/Index');
         });
     });
 
