@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Role;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
@@ -42,6 +43,9 @@ class AuthController extends Controller
             'name' => $credentials['name'],
             'email' => $credentials['email'],
             'password' => Hash::make($credentials['password']),
+        ]);
+        Role::create([
+            'user_id' => $user->id,
         ]);
 
         Auth::login($user);
@@ -156,6 +160,9 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => \Hash::make($request->password),
+        ]);
+        Role::create([
+            'user_id' => $user->id,
         ]);
         $token = $user->createToken('authToken')->plainTextToken;
         return response()->json([

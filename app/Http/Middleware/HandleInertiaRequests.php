@@ -38,6 +38,7 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'user' => auth()->user(),
+            'role' => auth()->user()->role,
             'url' => explode(env('APP_URL'),url()->current())[1],
         ]);
     }

@@ -1,9 +1,20 @@
 import { usePage } from "@inertiajs/inertia-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "./Layout";
 
 const Index = () => {
-    const {user} = usePage().props
+    const {user, role} = usePage().props
+    const [arr, setArr] = useState([]);
+    useEffect(() => {
+        for(let key in role){
+            if(key == 'id' || key == 'user_id' || key == 'created_at' || key == 'updated_at'){
+                continue;
+            }
+            if(role[key]){
+                setArr(arr => [...arr, key]);
+            }
+        }
+    }, [])
     return (
         <Layout>
 
@@ -57,7 +68,11 @@ const Index = () => {
                                 height:"50vh",
                                 overflow:"auto",
                                 }}>
-                                <h6 className="m-0 font-weight-bold text-primary">Super Admin</h6>
+                                {arr.map((item, index) => {
+                                    return (
+                                    <h6 key={index} className="m-0 font-weight-bold text-primary text-uppercase">{item}</h6>
+                                    )
+                                })}
                             </div>
                         </div>
                     </div>
