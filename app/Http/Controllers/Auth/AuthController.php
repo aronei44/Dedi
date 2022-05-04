@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\Role;
 use App\Models\User;
 use Inertia\Inertia;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +46,9 @@ class AuthController extends Controller
             'password' => Hash::make($credentials['password']),
         ]);
         Role::create([
+            'user_id' => $user->id,
+        ]);
+        Profile::create([
             'user_id' => $user->id,
         ]);
 
@@ -162,6 +166,9 @@ class AuthController extends Controller
             'password' => \Hash::make($request->password),
         ]);
         Role::create([
+            'user_id' => $user->id,
+        ]);
+        Profile::create([
             'user_id' => $user->id,
         ]);
         $token = $user->createToken('authToken')->plainTextToken;
