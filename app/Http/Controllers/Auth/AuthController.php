@@ -58,6 +58,64 @@ class AuthController extends Controller
 
         return redirect('/');
     }
+    public function changePassword(Request $request)
+    {
+        $credentials = $request->validate([
+            'password' => 'required|min:8',
+            'newPassword' => 'required|min:8',
+        ]);
+
+        $user = Auth::user();
+
+        if (! Hash::check($credentials['password'], $user->password)) {
+            return redirect()->back()->withInput()->with('error', 'Invalid current password.');
+        }
+
+        $user->password = Hash::make($credentials['newPassword']);
+        $user->save();
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/auth');
+    }
+    public function changeEmail(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email:dns',
+        ]);
+
+        $user = Auth::user();
+
+        $user->email = $credentials['email'];
+        $user->save();
+
+        return back();
+    }
+    public function deleteAccount(Request $request)
+    {
+        $credentials = $request->validate([
+            'password' => 'required|min:8',
+        ]);
+        $user = Auth::user();
+
+        if(Hash::check($credentials['password'], $user->password)) {
+            $user->delete();
+
+            Auth::logout();
+
+            $request->session()->invalidate();
+
+            $request->session()->regenerateToken();
+
+            return redirect('/');
+        } else {
+            return redirect()->back()->withInput()->with('error', 'Invalid current password.');
+        }
+    }
 
 
 
