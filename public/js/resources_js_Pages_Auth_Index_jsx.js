@@ -2225,35 +2225,9 @@ var Index = function Index() {
     };
 
     if (login) {
-      // axios.post('/api/login', body)
-      //     .then(res => {
-      //         if(res.status === 200){
-      //             localStorage.setItem('token', res.data.token)
-      //             localStorage.setItem('user', JSON.stringify(res.data.user))
-      //             window.location.href = '/'
-      //         } else {
-      //             alert('Login failed')
-      //         }
-      //     }
-      // ).catch(err => {
-      //     console.log(err)
-      // })
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post('/auth/login', body); // window.location.reload()
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post('/auth/login', body);
     } else {
-      // axios.post('/api/register', body)
-      //     .then(res => {
-      //         if(res.status === 201){
-      //             localStorage.setItem('token', res.data.token)
-      //             localStorage.setItem('user', JSON.stringify(res.data.user))
-      //             window.location.href = '/'
-      //         } else {
-      //             alert('Register failed')
-      //         }
-      //     }
-      // ).catch(err => {
-      //     console.log(err)
-      // })
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post('/auth/register', body); // window.location.reload()
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post('/auth/register', body);
     }
   };
 
@@ -2275,7 +2249,7 @@ var Index = function Index() {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "col-md-6",
               style: {
-                backgroundImage: "url('https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80')",
+                backgroundImage: "url('/img/login.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat"
