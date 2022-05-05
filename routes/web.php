@@ -31,15 +31,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/profile', [Auth\ProfileController::class, 'changeProfile']);
 
     Route::group(['prefix' => 'dashboard'], function () {
-        Route::get('/', function () {
-            return Inertia::render('Dashboard/Index');
-        });
-        Route::get('/account', function () {
-            return Inertia::render('Dashboard/Account/Index');
-        });
-        Route::get('/profile', function () {
-            return Inertia::render('Dashboard/Profile/Index');
-        });
+        Route::get('/', [Frontend\DashboardViewController::class, 'index']);
+        Route::get('/account', [Frontend\DashboardViewController::class, 'account']);
+        Route::get('/profile', [Frontend\DashboardViewController::class, 'profile']);
     });
 
 });
