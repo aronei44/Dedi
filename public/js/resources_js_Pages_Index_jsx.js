@@ -2372,6 +2372,11 @@ var Carousel = function Carousel() {
       alert("Something went wrong");
     });
   }, []);
+
+  if (dataCarousel.length === 0) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {});
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
     className: "bg-white",
     style: {

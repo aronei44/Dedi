@@ -12,6 +12,9 @@ const Carousel = () => {
                 alert("Something went wrong");
             });
     }, []);
+    if(dataCarousel.length === 0){
+        return <div></div>
+    }
     return (
         <section
             className="bg-white"
