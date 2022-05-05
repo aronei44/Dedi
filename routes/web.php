@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/profile', [Auth\ProfileController::class, 'changeProfile']);
 
     Route::post('/review', [Frontend\MainActionController::class, 'storeReview']);
+    Route::get('/reviews', [Frontend\MainActionController::class, 'getReviews']);
 
     Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/', [Frontend\DashboardViewController::class, 'index']);

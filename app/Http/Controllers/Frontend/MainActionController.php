@@ -15,7 +15,6 @@ class MainActionController extends Controller
             'message' => 'required|string|max:255',
         ]);
         try {
-            //code...
             Review::create([
                 'score' => $request->score,
                 'message' => $request->message,
@@ -26,12 +25,18 @@ class MainActionController extends Controller
                 'message' => 'Review has been created successfully',
             ],201);
         } catch (\Throwable $th) {
-            //throw $th;
-            // return $th;
             return response()->json([
                 'success' => false,
                 'message' => 'Review could not be created',
             ],500);
         }
+    }
+    public function getReviews()
+    {
+        $reviews = Review::with('user')->get();
+        return response()->json([
+            'success' => true,
+            'reviews' => $reviews,
+        ],200);
     }
 }

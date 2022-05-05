@@ -1,9 +1,9 @@
 import React from "react";
 
 const CarouselCard = ({data}) => {
-    let minus = 5 - data.rating;
+    let minus = 5 - data.score;
     let star = [];
-    for (let i = 0; i < data.rating; i++) {
+    for (let i = 0; i < data.score; i++) {
         star.push(1);
     }
     for (let i = 0; i < minus; i++) {
@@ -21,9 +21,9 @@ const CarouselCard = ({data}) => {
                 <div
                     className="col-md-4">
                     <img
-                        src={data.image}
+                        src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
                         className="img-fluid rounded"
-                        alt={data.name} />
+                        alt={data.user.name} />
                 </div>
                 <div
                     className="col-md-8">
@@ -31,7 +31,7 @@ const CarouselCard = ({data}) => {
                         className="card-body">
                         <h5
                             className="card-title">
-                            {data.name}
+                            {data.user.name}
                         </h5>
                         <p>
                             {star.map((item, index) => {
@@ -45,18 +45,18 @@ const CarouselCard = ({data}) => {
                             )}
                             <span
                                 className="ms-2">
-                                {data.rating}/5
+                                {data.score}/5
                             </span>
                         </p>
                         <p
                             className="card-text">
-                            {data.content}
+                            {data.message}
                         </p>
                         <p
                             className="card-text">
                             <small
                                 className="text-muted">
-                                {data.created_at}
+                                {data.created_at.split('T')[0]}
                             </small>
                         </p>
                     </div>

@@ -1,23 +1,17 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import CarouselCard from "./CarouselCard";
 
 const Carousel = () => {
-    const data = [
-        {
-            image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-            name: "Pendidikan",
-            content: "Pendidikan adalah fasilitas yang dapat digunakan oleh para pengunjung atau warga setempat untuk mengakses informasi tentang pendidikan yang ada di desa. Pendidikan dapat menjadi media informasi yang bermanfaat bagi para pengunjung.",
-            created_at: "2020-05-01",
-            rating: "4"
-        },
-        {
-            image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-            name: "UMKM",
-            content: "UMKM adalah fasilitas yang dapat digunakan oleh para pengunjung atau warga setempat untuk mengakses informasi tentang UMKM yang ada di desa. UMKM dapat menjadi media informasi yang bermanfaat bagi para pengunjung.",
-            created_at: "2020-05-01",
-            rating: "3"
-        },
-    ]
+    const [dataCarousel, setDataCarousel] = useState([]);
+    useEffect(() => {
+        axios.get("/reviews")
+            .then((data) => {
+                setDataCarousel(data.data.reviews);
+            }).catch(() => {
+                alert("Something went wrong");
+            });
+    }, []);
     return (
         <section
             className="bg-white"
@@ -36,13 +30,13 @@ const Carousel = () => {
                     data-bs-ride="carousel">
                     <div
                         className="carousel-inner">
-                        {data.map((item, index) => {
+                        {dataCarousel.map((item, index) => {
                             return (
                                 <div
                                     className={`carousel-item ${index === 0 ? 'active' : ''}`}>
                                     <CarouselCard
-                                        data={item}
                                         key={index}
+                                        data={item}
                                         />
                                 </div>
                             )}
