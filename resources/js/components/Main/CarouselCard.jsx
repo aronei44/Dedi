@@ -37,7 +37,9 @@ const CarouselCard = ({data}) => {
                             {star.map((item, index) => {
                                 return (
                                     <span
-                                        className={`fa fa-star ${item === 1 ? 'checked' : ''}`}/>
+                                        className={`fa fa-star ${item === 1 ? 'checked' : ''}`}
+                                        key={index}
+                                        />
                                     )
                                 }
                             )}

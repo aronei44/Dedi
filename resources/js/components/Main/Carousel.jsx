@@ -41,7 +41,9 @@ const Carousel = () => {
                                 <div
                                     className={`carousel-item ${index === 0 ? 'active' : ''}`}>
                                     <CarouselCard
-                                        data={item}/>
+                                        data={item}
+                                        key={index}
+                                        />
                                 </div>
                             )}
                         )}

@@ -6,6 +6,7 @@ import About from '../components/Main/About'
 import Contact from '../components/Main/Contact'
 import Carousel from '../components/Main/Carousel'
 import { usePage } from '@inertiajs/inertia-react'
+import Review from '../components/Main/Review'
 
 export default function Index() {
     const {user} = usePage().props
@@ -16,6 +17,7 @@ export default function Index() {
             <Hero />
             <About />
             <Carousel />
+            {user && <Review />}
             <Contact />
         </>
     )

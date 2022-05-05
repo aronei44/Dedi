@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/delete-account', [Auth\AuthController::class, 'deleteAccount']);
     Route::put('/profile', [Auth\ProfileController::class, 'changeProfile']);
 
+    Route::post('/review', [Frontend\MainActionController::class, 'storeReview']);
+
     Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/', [Frontend\DashboardViewController::class, 'index']);
         Route::get('/account', [Frontend\DashboardViewController::class, 'account']);
