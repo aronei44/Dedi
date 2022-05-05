@@ -2847,6 +2847,11 @@ var Review = function Review() {
       message = _useState6[0],
       setMessage = _useState6[1];
 
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      status = _useState8[0],
+      setStatus = _useState8[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     var minus = 5 - score;
     var star = [];
@@ -2862,10 +2867,13 @@ var Review = function Review() {
     setStar(star);
   }, [score]);
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    if (localStorage.getItem("review")) {
-      setMessage(localStorage.getItem("message"));
-      setScore(localStorage.getItem("score"));
-    }
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get("/review").then(function (data) {
+      setMessage(data.data.review.message);
+      setScore(data.data.review.score);
+      setStatus(true);
+    })["catch"](function () {
+      setStatus(false);
+    });
   }, []);
 
   var storeReview = function storeReview() {
@@ -2926,7 +2934,7 @@ var Review = function Review() {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                 className: "fa fa-star pointer ".concat(item === 1 ? 'checked' : ''),
                 onClick: function onClick() {
-                  if (!localStorage.getItem("review")) {
+                  if (!status) {
                     setScore(index + 1);
                   }
                 }
@@ -2948,7 +2956,7 @@ var Review = function Review() {
               },
               rows: "3",
               placeholder: "Masukkan pesan anda",
-              readOnly: localStorage.getItem("review"),
+              readOnly: status,
               value: message
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
@@ -2956,12 +2964,12 @@ var Review = function Review() {
             onClick: function onClick() {
               return storeReview();
             },
-            disabled: localStorage.getItem("review"),
+            disabled: status,
             className: "btn btn-primary btn-block mt-4",
             children: "Kirim"
-          }), localStorage.getItem("review") && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          }), status ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
             children: "Terimakasih atas review anda"
-          })]
+          }) : ""]
         })]
       })]
     })

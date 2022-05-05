@@ -39,4 +39,12 @@ class MainActionController extends Controller
             'reviews' => $reviews,
         ],200);
     }
+    public function getReview()
+    {
+        $review = Review::where('user_id', auth()->id())->first();
+        return response()->json([
+            'success' => true,
+            'review' => $review,
+        ],200);
+    }
 }

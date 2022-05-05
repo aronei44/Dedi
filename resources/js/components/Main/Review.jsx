@@ -5,6 +5,7 @@ const Review = () => {
     const [score, setScore] = useState(5);
     const [star, setStar] = useState([]);
     const [message, setMessage] = useState("");
+    const [status, setStatus] = useState(false);
     useEffect(() => {
         let minus = 5 - score;
 
@@ -18,10 +19,15 @@ const Review = () => {
         setStar(star);
     }, [score]);
     useEffect(() => {
-        if(localStorage.getItem("review")){
-            setMessage(localStorage.getItem("message"));
-            setScore(localStorage.getItem("score"));
-        }
+        axios.get("/review")
+            .then((data) => {
+                setMessage(data.data.review.message);
+                setScore(data.data.review.score);
+                setStatus(true);
+            }).catch(() => {
+                setStatus(false);
+            });
+
     }, []);
     const storeReview = () => {
         if (message.length > 0) {
@@ -82,7 +88,7 @@ const Review = () => {
                                             className={`fa fa-star pointer ${item === 1 ? 'checked' : ''}`}
                                             key={index}
                                             onClick={() => {
-                                                if(!localStorage.getItem("review")){
+                                                if(!status){
                                                     setScore(index + 1);
                                                 }
                                             }}
@@ -103,20 +109,20 @@ const Review = () => {
                                 onChange={(e) => setMessage(e.target.value)}
                                 rows="3"
                                 placeholder="Masukkan pesan anda"
-                                readOnly={localStorage.getItem("review")}
+                                readOnly={status}
                                 value={message}
                                 />
                         </div>
                         <button
                             type="button"
                             onClick={() => storeReview()}
-                            disabled={localStorage.getItem("review")}
+                            disabled={status}
                             className="btn btn-primary btn-block mt-4">
                             Kirim
                         </button>
-                        {localStorage.getItem("review") && (
+                        {status ? (
                             <p>Terimakasih atas review anda</p>
-                        )}
+                        ) : ""}
                     </div>
                 </div>
             </div>
