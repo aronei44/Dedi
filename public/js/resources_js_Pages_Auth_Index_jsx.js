@@ -2307,7 +2307,7 @@ var Index = function Index() {
                   }
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                className: "text-center my-5 ",
+                className: "text-center mt-5 mb-3 ",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                   type: "button",
                   className: "btn btn-primary",
@@ -2331,6 +2331,24 @@ var Index = function Index() {
                     children: login ? "Daftar" : "Masuk"
                   })]
                 })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "text-center",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("a", {
+                  href: "/auth/google",
+                  className: "btn btn-outline-primary",
+                  style: {
+                    width: "100%"
+                  },
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                    width: "15px",
+                    style: {
+                      marginBottom: '3px',
+                      marginRight: '5px'
+                    },
+                    alt: "Google login",
+                    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+                  }), "Sign in with Google"]
+                })
               })]
             })]
           })

@@ -798,7 +798,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var UserInfo = function UserInfo() {
-  var user = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.user;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props,
+      user = _usePage$props.user,
+      profile = _usePage$props.profile;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
     className: "nav-item dropdown no-arrow",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
@@ -811,7 +813,7 @@ var UserInfo = function UserInfo() {
       "aria-expanded": "false",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
         className: "mr-2 d-none d-lg-inline text-gray-600 small",
-        children: user.name
+        children: profile.name ? profile.name : user.name
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
         className: "img-profile rounded-circle",
         src: "/vendor/img/undraw_profile.svg"

@@ -9,7 +9,7 @@ const Carousel = () => {
             .then((data) => {
                 setDataCarousel(data.data.reviews);
             }).catch(() => {
-                alert("Something went wrong");
+                // alert("Something went wrong");
             });
     }, []);
     if(dataCarousel.length === 0){

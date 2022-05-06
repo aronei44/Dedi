@@ -5,7 +5,7 @@ import {Inertia} from "@inertiajs/inertia";
 import {usePage} from "@inertiajs/inertia-react";
 
 const Nav = () => {
-    const {user} = usePage().props
+    const {user, profile} = usePage().props
     const [scrolled, setScrolled] = useState(false);
     const logout = () => {
         Inertia.post("/auth/logout");
@@ -65,7 +65,7 @@ const Nav = () => {
                                         role="button"
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                        {user.name}
+                                        {profile.name? profile.name : user.name}
                                         </Link>
                                     <ul
                                         className="dropdown-menu"

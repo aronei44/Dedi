@@ -2368,8 +2368,7 @@ var Carousel = function Carousel() {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/reviews").then(function (data) {
       setDataCarousel(data.data.reviews);
-    })["catch"](function () {
-      alert("Something went wrong");
+    })["catch"](function () {// alert("Something went wrong");
     });
   }, []);
 
@@ -2708,7 +2707,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Nav = function Nav() {
-  var user = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.user;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props,
+      user = _usePage$props.user,
+      profile = _usePage$props.profile;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -2770,7 +2771,7 @@ var Nav = function Nav() {
                 role: "button",
                 "data-bs-toggle": "dropdown",
                 "aria-expanded": "false",
-                children: user.name
+                children: profile.name ? profile.name : user.name
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
                 className: "dropdown-menu",
                 "aria-labelledby": "navbarDropdownMenuLink",

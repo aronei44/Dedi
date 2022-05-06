@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Head} from "@inertiajs/inertia-react";
+import {Head, Link} from "@inertiajs/inertia-react";
 import axios from "axios";
 import NonAuth from "../../hooks/NonAuth";
 import { Inertia } from "@inertiajs/inertia";
@@ -103,7 +103,7 @@ const Index = () => {
                                         />
                                 </div>
                                 <div
-                                    className="text-center my-5 ">
+                                    className="text-center mt-5 mb-3 ">
                                     <button
                                         type="button"
                                         className="btn btn-primary"
@@ -124,6 +124,25 @@ const Index = () => {
                                             { login ? "Daftar" : "Masuk"}
                                             </a>
                                         </p>
+                                </div>
+                                <div
+                                    className="text-center">
+                                    <a
+                                        href="/auth/google"
+                                        className="btn btn-outline-primary"
+                                        style={{
+                                            width:"100%"
+                                        }}>
+                                        <img
+                                            width="15px"
+                                            style={{
+                                                marginBottom: '3px',
+                                                marginRight: '5px'
+                                            }}
+                                            alt="Google login"
+                                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                                            Sign in with Google
+                                    </a>
                                 </div>
                             </div>
                         </div>

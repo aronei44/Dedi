@@ -23,6 +23,8 @@ Route::get('/auth', [Auth\AuthController::class, 'authView'])->name('login');
 Route::post('/auth/login', [Auth\AuthController::class, 'loginWeb']);
 Route::post('/auth/register', [Auth\AuthController::class, 'registerWeb']);
 Route::post('/auth/logout', [Auth\AuthController::class, 'logoutWeb']);
+Route::get('/auth/google', [Auth\GoogleController::class, 'redirectToGoogle']);
+Route::get('/auth/redirect', [Auth\GoogleController::class, 'handleGoogleCallback']);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::put('/change-password', [Auth\AuthController::class, 'changePassword']);

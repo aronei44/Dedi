@@ -2,7 +2,7 @@ import { Link, usePage } from "@inertiajs/inertia-react";
 import React from "react";
 
 const UserInfo = () => {
-    const {user} = usePage().props
+    const {user, profile} = usePage().props
     return (
         <li
             className="nav-item dropdown no-arrow">
@@ -16,7 +16,7 @@ const UserInfo = () => {
                 aria-expanded="false">
                 <span
                     className="mr-2 d-none d-lg-inline text-gray-600 small">
-                    {user.name}
+                    {profile.name ? profile.name : user.name}
                 </span>
                 <img
                     className="img-profile rounded-circle"

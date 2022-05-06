@@ -52,7 +52,7 @@ const Index = () => {
                                         </tr>
                                         <tr>
                                             <th scope="row">Sign With OAuth</th>
-                                            <td>{user.googleId ? "Yes" : "No"}</td>
+                                            <td>{user.google_id ? "Yes" : "No"}</td>
                                         </tr>
                                     </tbody>
                                 </table>
