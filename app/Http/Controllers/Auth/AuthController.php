@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\SendMailController;
 
 class AuthController extends Controller
 {
@@ -51,6 +52,7 @@ class AuthController extends Controller
         Profile::create([
             'user_id' => $user->id,
         ]);
+        SendMailController::verifyEmail($credentials['email'], $credentials['name']);
 
         Auth::login($user);
 

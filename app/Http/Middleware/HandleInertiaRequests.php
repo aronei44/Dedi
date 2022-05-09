@@ -40,7 +40,7 @@ class HandleInertiaRequests extends Middleware
             'user' => auth()->user(),
             'role' => auth()->user()? auth()->user()->role : null,
             'profile' => auth()->user()? auth()->user()->profile : null,
-            'url' => env('APP_ENV') === 'local' ? explode(env('APP_URL'),url()->current())[1] : explode('.com',url()->current())[1],
+            // 'url' => env('APP_ENV') === 'local' ? explode(env('APP_URL'),url()->current())[1] : explode('.com',url()->current())[1] || null,
         ]);
     }
 }

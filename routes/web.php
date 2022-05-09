@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return Inertia::render('Index');
 });
+Route::get('email', [SendMailController::class, 'verifyEmail']);
 Route::get('/auth', [Auth\AuthController::class, 'authView'])->name('login');
 Route::post('/auth/login', [Auth\AuthController::class, 'loginWeb']);
 Route::post('/auth/register', [Auth\AuthController::class, 'registerWeb']);
