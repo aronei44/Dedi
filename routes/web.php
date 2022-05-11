@@ -32,6 +32,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/change-email', [Auth\AuthController::class, 'changeEmail']);
     Route::post('/delete-account', [Auth\AuthController::class, 'deleteAccount']);
     Route::put('/profile', [Auth\ProfileController::class, 'changeProfile']);
+    Route::post('/verify-email', [SendMailController::class, 'verifyMail']);
+    Route::post('/verify-otp', [Auth\AuthController::class, 'verifyAccount']);
 
     Route::post('/review', [Frontend\MainActionController::class, 'storeReview']);
     Route::get('/reviews', [Frontend\MainActionController::class, 'getReviews']);

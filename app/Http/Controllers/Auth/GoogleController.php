@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\SendMailController;
 
 class GoogleController extends Controller
 {
@@ -44,6 +45,8 @@ class GoogleController extends Controller
                     'user_id' => $user->id,
                     'name' => $data->name,
                 ]);
+                SendMailController::welcomeMail($user->email, $user->name);
+
                 Auth::login($user);
                 return redirect()->intended('/');
             }

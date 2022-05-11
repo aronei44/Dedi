@@ -52,7 +52,7 @@ class AuthController extends Controller
         Profile::create([
             'user_id' => $user->id,
         ]);
-        SendMailController::verifyEmail($credentials['email'], $credentials['name']);
+        SendMailController::welcomeMail($credentials['email'], $credentials['name']);
 
         Auth::login($user);
 
@@ -126,6 +126,19 @@ class AuthController extends Controller
             return redirect()->back()->withInput()->with('error', 'Invalid current password.');
         }
     }
+    public function verifyAccount(Request $request)
+    {
+        $user = User::find(auth()->user()->id);
+        if($user->otp == $request->otp) {
+            $user->email_verified_at = now();
+            $user->save();
+            // return redirect()->back()->with('success', 'Account verified successfully.');
+            return response()->json(['success' => true, 'message' => 'Account verified successfully.']);
+        } else {
+            // return redirect()->back()->withInput()->with('error', 'Invalid OTP.');
+            return response()->json(['success' => false, 'message' => 'Invalid OTP.']);
+        }
+    }
 
 
 
@@ -173,6 +186,8 @@ class AuthController extends Controller
         Profile::create([
             'user_id' => $user->id,
         ]);
+        SendMailController::welcomeMail($user->email, $user->name);
+
         $token = $user->createToken('authToken')->plainTextToken;
         return response()->json([
             'token' => $token,
@@ -187,3 +202,5 @@ class AuthController extends Controller
         ],200);
     }
 }
+
+

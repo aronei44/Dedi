@@ -165,17 +165,8 @@
       </div> --}}
       <h3 class='colorBlue'>Terima kasih telah bergabung di Megamendung Digital</h3>
       <br>
-      <p>Verifikasi email anda sekarang untuk menikmati seluruh fitur yang tersedia.</p>
-      <br>
-      <p>
-        <p class='OTP' style="color: white;">
-            {{$details['otp']}}
-        </p>
-      </p>
-      <br>
       <p class='alignLeft'>Nama penggunamu adalah : <b>{{ $details['username'] }}</b></p>
       <p class='alignLeft'>Email penggunamu adalah : <b>{{ $details['email'] }}</b></p>
-      <p class='alignLeft'>Dimohon untuk tidak memberikan OTP tersebut kepada orang lain termasuk pihak pengelola Megamendung Digital.</p>
     </div>
     <div id='section'>
         <a href="#"><img src="https://silicagel.s3.ap-southeast-1.amazonaws.com/cdn/Logo-grey.png" alt=""></a>
