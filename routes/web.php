@@ -20,7 +20,7 @@ Route::get('/', function () {
     return Inertia::render('Index');
 });
 Route::get('email', [SendMailController::class, 'verifyEmail']);
-Route::get('/auth', [Auth\AuthController::class, 'authView'])->name('login');
+Route::get('/auth', [Auth\AuthController::class, 'authView'])->name('login')->middleware('guest');
 Route::post('/auth/login', [Auth\AuthController::class, 'loginWeb']);
 Route::post('/auth/register', [Auth\AuthController::class, 'registerWeb']);
 Route::post('/auth/logout', [Auth\AuthController::class, 'logoutWeb']);

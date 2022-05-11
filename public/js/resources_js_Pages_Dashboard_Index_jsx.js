@@ -2210,6 +2210,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Index = function Index() {
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
       user = _usePage$props.user,
@@ -2380,7 +2381,29 @@ var Index = function Index() {
                       scope: "row",
                       children: "Sign With OAuth"
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
-                      children: user.google_id ? "Yes" : "No"
+                      children: user.google_id ? "Yes" : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                          children: ["No", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                            className: "text-center ms-3",
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("a", {
+                              href: "/auth/google",
+                              className: "btn btn-outline-primary",
+                              style: {
+                                width: "80%"
+                              },
+                              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                                width: "15px",
+                                style: {
+                                  marginBottom: '3px',
+                                  marginRight: '5px'
+                                },
+                                alt: "Google login",
+                                src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+                              }), "Sign in with Google"]
+                            })
+                          })]
+                        })
+                      })
                     })]
                   })]
                 })

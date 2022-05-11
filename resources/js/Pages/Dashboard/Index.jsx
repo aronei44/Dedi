@@ -113,7 +113,32 @@ const Index = () => {
                                         </tr>
                                         <tr>
                                             <th scope="row">Sign With OAuth</th>
-                                            <td>{user.google_id ? "Yes" : "No"}</td>
+                                            <td>{user.google_id ? "Yes" : (
+                                                <>
+                                                    <p>
+                                                        No
+                                                        <span
+                                                            className="text-center ms-3">
+                                                            <a
+                                                                href="/auth/google"
+                                                                className="btn btn-outline-primary"
+                                                                style={{
+                                                                    width:"80%"
+                                                                }}>
+                                                                <img
+                                                                    width="15px"
+                                                                    style={{
+                                                                        marginBottom: '3px',
+                                                                        marginRight: '5px'
+                                                                    }}
+                                                                    alt="Google login"
+                                                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                                                                    Sign in with Google
+                                                            </a>
+                                                        </span>
+                                                    </p>
+                                                </>
+                                            )}</td>
                                         </tr>
                                     </tbody>
                                 </table>
