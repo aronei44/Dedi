@@ -2,6 +2,14 @@ feel free to contribute.
 
 # Development History
 
+
+## V 0.3
+
+### Feature :
+
+- Verify mail with OTP
+- Link account with google Oauth
+
 ## V 0.2
 
 ### Feature :
